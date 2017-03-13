@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Text;
 using System.Xml;
 using Newtonsoft.Json;
@@ -7,9 +6,20 @@ using Newtonsoft.Json.Linq;
 
 namespace AWS_IP_address_ACL
 {
-    class Program
+    /// <summary>
+    /// Azure IP addresses: https://www.microsoft.com/en-nz/download/details.aspx?id=41653
+    /// AWS IP addresses: https://ip-ranges.amazonaws.com/ip-ranges.json
+    /// 
+    /// INSTRUCTIONS:
+    /// 1. Grab both those files and put them into the bin/Debug of this solution
+    /// 2. Rename the Azure one to: Azure-Public-Ips.xml
+    /// 3. In the Azure one, move USWEST and USWEST2 and JAPAN ones at the top
+    /// 4. Run this, and the files will be created in the bin/Debug folder: Azure-Ip-List.txt, Aws-Ip-List.txt
+    /// 5. Use the output and put the content in the config settings in the Wip solution: MicrosoftIpAddresses and AwsEc2IpAddresses
+    /// </summary>
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             if (File.Exists("Azure-Ip-List.txt"))
             {
@@ -24,6 +34,7 @@ namespace AWS_IP_address_ACL
             var awsIps = new StringBuilder();
             var azureIps = new StringBuilder();
 
+            //AZURE
             using (var xmlReader = new XmlTextReader("Azure-Public-Ips.xml"))
             {
                 while (xmlReader.Read())
@@ -35,11 +46,11 @@ namespace AWS_IP_address_ACL
                 }
             }
 
+            //AWS
             using (var file = File.OpenText(@"ip-ranges.json")) 
             using (var reader = new JsonTextReader(file))
             {
                 var rawJson = (JObject)JToken.ReadFrom(reader);
-
                 var items = (JArray) rawJson["prefixes"];
                 
                 foreach (var item in items)
