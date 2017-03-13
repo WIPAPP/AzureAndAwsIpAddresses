@@ -7,8 +7,8 @@
     <ProjectGuid>{99F0C538-079C-4630-B3FA-FA15090BA08C}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AWS_IP_address_ACL</RootNamespace>
-    <AssemblyName>AWS-IP-address-ACL</AssemblyName>
+    <RootNamespace>AzureAndAwsIpAddresses</RootNamespace>
+    <AssemblyName>AzureAndAwsIpAddresses</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

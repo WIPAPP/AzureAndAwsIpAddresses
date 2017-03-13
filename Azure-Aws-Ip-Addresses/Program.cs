@@ -4,9 +4,10 @@ using System.Xml;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace AWS_IP_address_ACL
+namespace AzureAndAwsIpAddresses
 {
     /// <summary>
+    /// SOURCE DATA FILES:
     /// Azure IP addresses: https://www.microsoft.com/en-nz/download/details.aspx?id=41653
     /// AWS IP addresses: https://ip-ranges.amazonaws.com/ip-ranges.json
     /// 
@@ -68,7 +69,6 @@ namespace AWS_IP_address_ACL
 
                         ((string)item["service"]).Equals("EC2"))
                     {
-                        
                         awsIps.AppendFormat("{0},", (string)item["ip_prefix"]);
                     }
                 }
