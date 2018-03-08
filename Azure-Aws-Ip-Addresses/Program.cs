@@ -56,14 +56,7 @@ namespace AzureAndAwsIpAddresses
                 
                 foreach (var item in items)
                 {
-                    if ( 
-                        ( ((string)item["region"]).Equals("us-east-1") || ((string)item["region"]).Equals("us-west-2") || ((string)item["region"]).Equals("us-west-1") || ((string)item["region"]).Equals("eu-west-1") || ((string)item["region"]).Equals("ap-southeast-1") || ((string)item["region"]).Equals("ap-northeast-1") || ((string)item["region"]).Equals("ap-southeast-2") || ((string)item["region"]).Equals("sa-east-1"))
-                        
-                        &&
-                        !((string)item["region"]).Contains("gov")
-
-                        &&
-                        !((string)item["region"]).Contains("eu")
+                    if ( !((string)item["region"]).Contains("gov")
 
                         &&
 
